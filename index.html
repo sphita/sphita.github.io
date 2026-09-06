@@ -66,8 +66,11 @@
                 <h3>Datasets First</h3>
                 <p>High-quality data is the bottleneck for AI. We create, process, and publish robust datasets tailored for the open-source community to build better models.</p>
             </div>
-            <div class="feature-card">
-                <div class="icon"><img src=".svgs/lock_open_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Open Source" class="feature-icon"></div>
+            <div class="feature-card" id="open-source-card">
+                <div class="icon lock-container" style="position: relative; width: 48px; height: 48px; margin-bottom: 0.5rem;">
+                    <img src=".svgs/lock_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Closed Lock" class="feature-icon lock-closed" style="position: absolute; top: 0; left: 0;">
+                    <img src=".svgs/lock_open_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Open Lock" class="feature-icon lock-open" style="position: absolute; top: 0; left: 0; opacity: 0; transform: scale(0.9);">
+                </div>
                 <h3>Open-First Approach</h3>
                 <p>We aim to keep ~90% of our work fully open-source. For massive datasets, we utilize staged rollouts to ensure quality, safety, and community feedback.</p>
             </div>
