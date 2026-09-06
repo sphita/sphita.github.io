@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+    <circle cx="50" cy="50" r="42" stroke="#1971ff" stroke-width="3" stroke-dasharray="10 10" stroke-linecap="round">
+        <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="20s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="50" cy="50" r="34" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="15 5" opacity="0.8">
+        <animateTransform attributeName="transform" type="rotate" from="360 50 50" to="0 50 50" dur="15s" repeatCount="indefinite"/>
+    </circle>
+    <path d="M50 22 L70 50 L50 78 L30 50 Z" fill="url(#coreGrad)"/>
+    <circle cx="50" cy="50" r="6" fill="#ffffff" />
+    <defs>
+        <linearGradient id="coreGrad" x1="30" y1="22" x2="70" y2="78" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#1971ff" />
+            <stop offset="100%" stop-color="#8b5cf6" />
+        </linearGradient>
+    </defs>
+</svg>
