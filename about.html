@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Sphita - Learn about our mission, our open-first philosophy, and our leadership.">
+    <title>About | Sphita</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-elements">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
+    <header class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">Sphita<span>.ai</span></a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="https://huggingface.co/sphita" target="_blank" class="svg-link" title="Hugging Face"><img src=".svgs/hf-logo.svg" alt="Hugging Face" class="svg-icon"></a></li>
+                    <li><a href="https://github.com/sphita" target="_blank" class="svg-link" title="GitHub"><img src=".svgs/icons8-github.svg" alt="GitHub" class="svg-icon icon-invert"></a></li>
+                </ul>
+            </nav>
+            <div class="nav-cta">
+                <a href="https://discord.gg/mz2hBN3k8p" target="_blank" class="btn btn-primary svg-link"><img src=".svgs/icons8-discord.svg" alt="Discord" class="svg-icon icon-invert"> Join Discord</a>
+            </div>
+            <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+                &#9776;
+            </div>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <section class="container content-section">
+            <h1 class="page-title">About <span>Sphita</span></h1>
+            <div class="text-block">
+                <h2>Our Story</h2>
+                <p>Sphita was founded with a singular focus: to solve the data bottleneck in modern AI development. We recognized that while model architectures are widely shared, high-quality, curated datasets remain heavily gated. We are here to change that.</p>
+                <p>We are a community-driven organization consisting of researchers, developers, and AI enthusiasts. We believe that true progress in artificial intelligence comes from radical collaboration and shared resources.</p>
+                
+                <h2>Our Open-First Philosophy</h2>
+                <p>We are committed to open-sourcing approximately 90% of our codebases, datasets, and models. For extremely large or complex datasets, we implement a staged release strategy (e.g., releasing an initial 60% partition) to ensure rigorous quality control and safety checks before the remaining data is published.</p>
+
+                <h2>Leadership</h2>
+                <div class="leadership-card">
+                    <h3>Adhyash Verma</h3>
+                    <p><strong>Founder & Lead Researcher</strong></p>
+                    <p>Adhyash leads the strategic vision for Sphita, overseeing dataset curation and agentic architecture.</p>
+                    <div class="social-links">
+                        <a href="https://github.com/AVadhyanshverma" target="_blank" class="svg-link"><img src=".svgs/icons8-github.svg" alt="GitHub" class="svg-icon icon-invert"> GitHub Profile</a>
+                        <a href="https://huggingface.co/AdhyanshVerma" target="_blank" class="svg-link"><img src=".svgs/hf-logo.svg" alt="Hugging Face" class="svg-icon"> Hugging Face Profile</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h3>Sphita</h3>
+                <p>Empowering the future, one agent at a time.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="https://github.com/sphita" class="svg-link"><img src=".svgs/icons8-github.svg" alt="GitHub" class="svg-icon icon-invert"> GitHub</a></li>
+                    <li><a href="https://huggingface.co/sphita" class="svg-link"><img src=".svgs/hf-logo.svg" alt="Hugging Face" class="svg-icon"> Hugging Face</a></li>
+                    <li><a href="https://discord.gg/mz2hBN3k8p" class="svg-link"><img src=".svgs/icons8-discord.svg" alt="Discord" class="svg-icon icon-invert"> Discord</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="year">2026</span> Sphita. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
