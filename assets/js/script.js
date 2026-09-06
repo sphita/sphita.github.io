@@ -198,3 +198,37 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { threshold: 0.5 });
     stats.forEach(stat => observer.observe(stat));
 });
+
+// Crypto Checkout Modal Logic
+function openCryptoModal() {
+    document.getElementById('crypto-modal').classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+}
+
+function closeCryptoModal() {
+    document.getElementById('crypto-modal').classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+function copyAddress(id, btn) {
+    const text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        const originalText = btn.innerText;
+        btn.innerText = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+            btn.innerText = originalText;
+            btn.classList.remove('copied');
+        }, 2000);
+    }).catch(err => {
+        console.error("Failed to copy!", err);
+    });
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', function(event) {
+    const modal = document.getElementById('crypto-modal');
+    if (event.target === modal) {
+        closeCryptoModal();
+    }
+});

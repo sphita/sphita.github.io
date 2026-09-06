@@ -191,7 +191,7 @@
                 <h3 style="font-family: monospace; font-size: 1.1rem; word-break: break-all;">AdhyanshVerma/open-github-major-repos</h3>
                 <p style="font-size: 0.95rem;">GitHub commit metadata from Microsoft, Google, Meta, and Intel. Uses the Lazy Pointer Pattern — metadata in Parquet, full content via pointers.</p>
                 <div style="margin-bottom: 1rem; margin-top: 0.5rem; font-size: 0.8rem; color: #a0a0a0; font-family: monospace;">Aug 2026 — 13K files</div>
-                <a href="dataset.html?id=AdhyanshVerma/open-github-major-repos" class="card-link">View Dataset &rarr;</a>
+                <div style="display: flex; gap: 10px; margin-top: 1.5rem;"><a href="dataset.html?id=AdhyanshVerma/open-github-major-repos" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem; flex: 1; text-align: center;">Free Sample</a><button onclick="openCryptoModal()" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem; flex: 1.5; display: flex; align-items: center; justify-content: center; gap: 8px;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Unlock ($50)</button></div>
             </div>
             
             <div class="feature-card">
@@ -201,7 +201,7 @@
                 <h3 style="font-family: monospace; font-size: 1.1rem; word-break: break-all;">AdhyanshVerma/stack-2021-12-01</h3>
                 <p style="font-size: 0.95rem;">Stack Exchange corpus from 21 sites, normalized into streaming-optimized Parquet. Built for LLM reasoning and instruction tuning.</p>
                 <div style="margin-bottom: 1rem; margin-top: 0.5rem; font-size: 0.8rem; color: #a0a0a0; font-family: monospace;">Dec 2021 — 176 shards</div>
-                <a href="dataset.html?id=AdhyanshVerma/stack-2021-12-01" class="card-link">View Dataset &rarr;</a>
+                <div style="display: flex; gap: 10px; margin-top: 1.5rem;"><a href="dataset.html?id=AdhyanshVerma/stack-2021-12-01" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem; flex: 1; text-align: center;">Free Sample</a><button onclick="openCryptoModal()" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem; flex: 1.5; display: flex; align-items: center; justify-content: center; gap: 8px;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Unlock ($50)</button></div>
             </div>
             
             <div class="feature-card">
@@ -211,7 +211,7 @@
                 <h3 style="font-family: monospace; font-size: 1.1rem; word-break: break-all;">AdhyanshVerma/pg-en</h3>
                 <p style="font-size: 0.95rem;">The entire English Project Gutenberg catalog. 50K+ books converted to Parquet and JSONL. One of the largest clean literary corpora on HuggingFace.</p>
                 <div style="margin-bottom: 1rem; margin-top: 0.5rem; font-size: 0.8rem; color: #a0a0a0; font-family: monospace;">Aug 2026 — 50,871 books</div>
-                <a href="dataset.html?id=AdhyanshVerma/pg-en" class="card-link">View Dataset &rarr;</a>
+                <div style="display: flex; gap: 10px; margin-top: 1.5rem;"><a href="dataset.html?id=AdhyanshVerma/pg-en" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem; flex: 1; text-align: center;">Free Sample</a><button onclick="openCryptoModal()" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem; flex: 1.5; display: flex; align-items: center; justify-content: center; gap: 8px;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Unlock ($50)</button></div>
             </div>
             
             <div style="grid-column: 1 / -1; text-align: center; margin-top: 2rem;">
@@ -260,6 +260,41 @@
         </div>
     </footer>
 
+    <!-- Crypto Checkout Modal -->
+    <div id="crypto-modal" class="modal-overlay">
+        <div class="modal-content vscode-window" style="margin-bottom: 0;">
+            <div class="vscode-header">
+                <div class="dots"><div class="dot red" onclick="closeCryptoModal()" title="Close"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+                payment_gateway.sh
+            </div>
+            <div class="modal-body">
+                <h3 style="color: #fff; margin-bottom: 10px; font-size: 1.5rem; font-weight: 700;">Unlock Premium Dataset</h3>
+                <p style="color: #a0a0a0; font-size: 0.95rem; margin-bottom: 25px; line-height: 1.6;">No Stripe. No corporate payment processors. Send the funds directly to my wallet and email the transaction hash. I'll reply with the private download link.</p>
+                
+                <div class="wallet-block">
+                    <div class="wallet-header">Solana (SOL / USDC)</div>
+                    <div class="wallet-address-container">
+                        <code id="sol-address">Enter_Your_SOL_Address_Here</code>
+                        <button class="copy-btn" onclick="copyAddress('sol-address', this)">Copy</button>
+                    </div>
+                </div>
+
+                <div class="wallet-block">
+                    <div class="wallet-header">Bitcoin (BTC)</div>
+                    <div class="wallet-address-container">
+                        <code id="btc-address">Enter_Your_BTC_Address_Here</code>
+                        <button class="copy-btn" onclick="copyAddress('btc-address', this)">Copy</button>
+                    </div>
+                </div>
+
+                <div class="instruction-block">
+                    <span class="vsc-info">[STEP 2]</span> Email the Transaction Hash to:
+                    <div style="margin-top: 8px; color: #fff; font-family: monospace; font-size: 1.1rem;"><strong>adhyansh@your-email.com</strong></div>
+                    <p style="color: #888; font-size: 0.85rem; margin-top: 15px; font-style: italic;">// The access link and commercial license will be emailed manually within 12 hours.</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="assets/js/script.js"></script>
 </body>
 </html>
