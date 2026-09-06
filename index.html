@@ -91,7 +91,7 @@
 
         <!-- STATS BAR — Real, Asymmetric, Linked -->
         <section class="container" style="padding: 4rem 20px 0; position: relative; z-index: 2;">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; text-align: center; background: rgba(255,255,255,0.03); border: var(--glass-border); border-radius: 16px; padding: 2.5rem; backdrop-filter: blur(10px);">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; text-align: center; background: var(--bg-card); border: var(--glass-border); border-radius: 4px; padding: 2.5rem; ">
                 <a href="datasets.html" style="text-decoration: none;">
                     <h2 style="font-size: 2.5rem; color: var(--accent-blue); font-weight: 800; margin-bottom: 0.5rem; font-family: monospace;"><span class="stat-number" data-target="133" data-suffix="K+">0</span></h2>
                     <p style="color: var(--text-secondary); font-weight: 500;">Pages Crawled</p>
@@ -157,7 +157,7 @@
 
         <!-- THE MACHINE -->
         <section class="container" style="padding: 0 20px 4rem; position: relative; z-index: 2;">
-            <div style="background: rgba(255,255,255,0.02); border: var(--glass-border); border-radius: 16px; padding: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;" class="machine-grid">
+            <div style="background: var(--bg-card); border: var(--glass-border); border-radius: 4px; padding: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;" class="machine-grid">
                 <div>
                     <p style="color: var(--accent-blue); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;">The Machine</p>
                     <h3 style="font-size: 1.5rem; margin-bottom: 1rem; font-weight: 700;">Everything runs on one desktop.</h3>
@@ -221,7 +221,7 @@
 
         <!-- BUILT BY — The Founder -->
         <section class="container" style="padding: 4rem 20px 6rem; position: relative; z-index: 2;">
-            <div style="background: rgba(255,255,255,0.02); border: var(--glass-border); border-radius: 16px; padding: 3rem; max-width: 800px; margin: 0 auto;">
+            <div style="background: var(--bg-card); border: var(--glass-border); border-radius: 4px; padding: 3rem; max-width: 800px; margin: 0 auto;">
                 <p style="color: var(--accent-blue); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem;">Built by</p>
                 <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 700;">Adhyansh Verma, 16.</h3>
                 <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">I started crawling the web because I noticed that most open datasets for AI are either ancient Common Crawl dumps or gated behind corporate APIs. The first version of my crawler created so many files the OS filesystem choked. So I rewrote everything in Rust around Parquet — and kept going.</p>
