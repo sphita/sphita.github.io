@@ -123,8 +123,34 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (!res.ok) throw new Error("Failed to load post");
                     return res.text();
                 })
-                .then(md => {
-                    postContainer.innerHTML = marked.parse(md);
+                .then(text => {
+                    // Very simple YAML frontmatter parser
+                    let metadata = {};
+                    let content = text;
+                    const match = text.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)/);
+                    if (match) {
+                        const yamlBlock = match[1];
+                        content = match[2];
+                        yamlBlock.split('\n').forEach(line => {
+                            const colonIndex = line.indexOf(':');
+                            if (colonIndex > 0) {
+                                const key = line.substring(0, colonIndex).trim();
+                                const value = line.substring(colonIndex + 1).trim().replace(/^['"](.*)['"]$/, '$1');
+                                metadata[key] = value;
+                            }
+                        });
+                    }
+
+                    // Prioritize frontmatter metadata over index fallback
+                    const finalTitle = metadata.title || postMeta.title;
+                    const finalAuthor = metadata.author || postMeta.author || "Sphita Team";
+                    const finalDate = metadata.date || postMeta.date;
+                    const readTime = metadata.read_time ? ` • ${metadata.read_time} read` : '';
+
+                    document.getElementById('post-title').textContent = finalTitle;
+                    document.getElementById('post-date').textContent = `${finalDate} • By ${finalAuthor}${readTime}`;
+                    
+                    postContainer.innerHTML = marked.parse(content);
                 })
                 .catch(err => {
                     postContainer.innerHTML = '<p>Error loading post content. The markdown file may be missing.</p>';

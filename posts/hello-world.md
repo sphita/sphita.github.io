@@ -1,3 +1,9 @@
+---
+title: "Hello World: A Hassle-Free Blog System"
+author: "Adhyash Verma"
+date: "September 6, 2026"
+read_time: "2 min"
+---
 # Welcome to the Sphita Blog
 
 This is our new markdown-powered blog system. It is designed to be **completely hassle-free**.
