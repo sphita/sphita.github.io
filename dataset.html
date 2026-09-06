@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sphita Dataset View">
+    <title>Dataset | Sphita</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%231971ff'/></svg>">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        .dataset-header {
+            text-align: center;
+            padding: 4rem 20px 2rem;
+        }
+        .dataset-header h1 {
+            font-family: monospace;
+            font-size: 2.5rem;
+            word-break: break-all;
+            margin-bottom: 1rem;
+        }
+        .meta-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .badge {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="bg-elements">
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+
+    <nav class="navbar container">
+        <a href="index.html" class="logo">
+            <img src="svgs/hf-logo-pirate.svg" alt="HF Logo" class="icon-monochrome" style="width: 24px; height: 24px;"> 
+            Sphita
+        </a>
+        <div class="nav-links">
+            <a href="about.html">About</a>
+            <a href="datasets.html">Datasets</a>
+            <a href="blogs.html">Blog</a>
+            <a href="https://github.com/sphita" target="_blank" class="nav-icon">
+                <img src="svgs/github.svg" alt="GitHub" class="icon-monochrome">
+            </a>
+            <a href="https://huggingface.co/sphita" target="_blank" class="nav-icon">
+                <img src="svgs/hf-logo-pirate.svg" alt="Hugging Face" class="icon-monochrome">
+            </a>
+            <a href="#" class="nav-icon">
+                <img src="svgs/discord.svg" alt="Discord" class="icon-monochrome">
+            </a>
+        </div>
+    </nav>
+
+    <header class="dataset-header container">
+        <h1 id="dataset-title">Loading Dataset...</h1>
+        <div class="meta-badges" id="dataset-meta">
+            <!-- Badges injected via JS -->
+        </div>
+        <a id="hf-link" href="#" target="_blank" class="btn btn-outline" style="display: none; margin: 0 auto;">View on Hugging Face</a>
+    </header>
+
+    <main class="container" style="max-width: 800px; padding: 2rem 20px; background: rgba(0,0,0,0.4); border: var(--glass-border); border-radius: 12px; backdrop-filter: blur(10px); margin-bottom: 4rem;">
+        <article class="prose" id="dataset-readme">
+            <p style="text-align: center; color: var(--text-secondary);">Fetching README.md from Hugging Face...</p>
+        </article>
+    </main>
+
+    <footer class="container" style="padding: 3rem 20px; border-top: var(--glass-border); display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem;">
+        <div>
+            <h3 style="margin-bottom: 1rem; color: #fff;">Sphita</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">Develop. Collaborate. Thrive. Open-first datasets for the next generation of AI.</p>
+        </div>
+        <div>
+            <h4 style="margin-bottom: 1rem; color: #fff;">Resources</h4>
+            <ul style="list-style: none; padding: 0;">
+                <li><a href="datasets.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">Datasets</a></li>
+                <li><a href="blogs.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">Blog</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 style="margin-bottom: 1rem; color: #fff;">Connect</h4>
+            <ul style="list-style: none; padding: 0;">
+                <li><a href="https://github.com/sphita" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">GitHub</a></li>
+                <li><a href="https://huggingface.co/sphita" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">Hugging Face</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

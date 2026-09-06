@@ -1,97 +1,88 @@
+// Initialize
 document.addEventListener('DOMContentLoaded', () => {
-    // Set current year in footer
-    const yearSpan = document.getElementById('year');
-    if (yearSpan) {
-        const currentYear = new Date().getFullYear();
-        yearSpan.textContent = currentYear > 2026 ? `2026 - ${currentYear}` : '2026';
-    }
-
-    // Mobile menu toggle
-    const toggleBtn = document.getElementById('mobile-menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (toggleBtn && navLinks) {
-        toggleBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-    }
+    fetchDatasets();
+    renderBlogGrid();
+    loadBlogPost();
+    loadSingleDataset();
+    setupLockAnimation();
 });
 
-    // Lock Animation Logic
-    const openSourceCard = document.getElementById('open-source-card');
-    const lockClosed = document.querySelector('.lock-closed');
-    const lockOpen = document.querySelector('.lock-open');
-
-    if (openSourceCard && lockClosed && lockOpen) {
-        openSourceCard.addEventListener('mouseenter', () => {
-            // Animates to open state via JS
-            lockClosed.style.opacity = '0';
-            lockClosed.style.transform = 'scale(0.8) translateY(0)';
-            lockClosed.style.filter = 'drop-shadow(0 0 0 rgba(25,113,255,0))';
-            
-            lockOpen.style.opacity = '1';
-            lockOpen.style.transform = 'scale(1.15) translateY(-5px)';
-            lockOpen.style.filter = 'drop-shadow(0 4px 12px rgba(25, 113, 255, 0.6))';
-        });
-
-        openSourceCard.addEventListener('mouseleave', () => {
-            // Animates back to closed state via JS
-            lockClosed.style.opacity = '1';
-            lockClosed.style.transform = 'scale(1) translateY(0)';
-            lockClosed.style.filter = 'drop-shadow(0 0 0 rgba(25,113,255,0))';
-            
-            lockOpen.style.opacity = '0';
-            lockOpen.style.transform = 'scale(0.8) translateY(0)';
-            lockOpen.style.filter = 'drop-shadow(0 0 0 rgba(25,113,255,0))';
-        });
-    }
-
-    // Hugging Face Dynamic Dataset Fetcher
-    const datasetsGrid = document.getElementById('datasets-grid');
-    if (datasetsGrid) {
-        async function fetchHuggingFaceDatasets() {
-            try {
-                // Fetch datasets authored by 'sphita'
-                const response = await fetch('https://huggingface.co/api/datasets?author=sphita&sort=downloads&direction=-1');
-                const datasets = await response.json();
-
-                if (!datasets || datasets.length === 0) {
-                    datasetsGrid.innerHTML = '<p style="color: var(--text-secondary);">No datasets found yet. Check back soon or view our <a href="https://huggingface.co/sphita" style="color: var(--accent-blue);">Hugging Face profile</a>.</p>';
-                    return;
-                }
-
-                datasetsGrid.innerHTML = ''; // Clear loading text
-                
-                datasets.forEach(ds => {
-                    const name = ds.id.split('/')[1] || ds.id;
-                    const card = document.createElement('div');
-                    card.className = 'feature-card dataset-card';
-                    
-                    // Format dates and numbers
-                    const downloads = ds.downloads ? ds.downloads.toLocaleString() : '0';
-                    const likes = ds.likes ? ds.likes.toLocaleString() : '0';
-                    
-                    card.innerHTML = `
-                        <h3>${name}</h3>
-                        <div class="dataset-stats">
-                            <span><svg class="svg-icon" style="width:16px;height:16px;fill:currentColor;" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h520v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg> ${downloads}</span>
-                            <span>❤️ ${likes}</span>
-                        </div>
-                        <p>Automatically synced from Hugging Face.</p>
-                        <a href="https://huggingface.co/datasets/${ds.id}" target="_blank" class="card-link">View on Hugging Face &rarr;</a>
-                    `;
-                    datasetsGrid.appendChild(card);
-                });
-            } catch (error) {
-                console.error("Error fetching datasets:", error);
-                datasetsGrid.innerHTML = '<p style="color: var(--text-secondary);">Failed to load datasets. Please visit our <a href="https://huggingface.co/sphita" style="color: var(--accent-blue);">Hugging Face profile</a> directly.</p>';
-            }
-        }
+// Fetch datasets from Hugging Face dynamically for datasets.html
+async function fetchDatasets() {
+    const grid = document.getElementById('datasets-grid');
+    if (!grid) return;
+    
+    try {
+        const res = await fetch('https://huggingface.co/api/datasets?author=AdhyanshVerma');
+        const datasets = await res.json();
         
-        fetchHuggingFaceDatasets();
+        grid.innerHTML = '';
+        datasets.forEach(dataset => {
+            const card = document.createElement('div');
+            card.className = 'feature-card dataset-card';
+            
+            card.innerHTML = `
+                <div class="dataset-stats" style="margin-bottom: 1rem;">
+                    <span>⬇ ${dataset.downloads || 0}</span>
+                    <span style="margin-left: 1rem;">❤️ ${dataset.likes || 0}</span>
+                </div>
+                <h3 style="font-family: monospace; word-break: break-all; font-size: 1.05rem;">${dataset.id}</h3>
+                <p>Updated: ${new Date(dataset.lastModified).toLocaleDateString()}</p>
+                <a href="dataset.html?id=${dataset.id}" class="card-link">View Details &rarr;</a>
+            `;
+            grid.appendChild(card);
+        });
+    } catch (err) {
+        grid.innerHTML = '<p>Failed to load datasets.</p>';
     }
+}
 
-    // Blog Hub Logic
+// Fetch and render single dataset README on dataset.html
+async function loadSingleDataset() {
+    const titleEl = document.getElementById('dataset-title');
+    if (!titleEl) return; // Not on dataset.html
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const datasetId = urlParams.get('id');
+    
+    if (!datasetId) {
+        titleEl.textContent = "Dataset Not Found";
+        document.getElementById('dataset-readme').innerHTML = "";
+        return;
+    }
+    
+    titleEl.textContent = datasetId;
+    document.getElementById('hf-link').href = `https://huggingface.co/datasets/${datasetId}`;
+    document.getElementById('hf-link').style.display = 'inline-block';
+    
+    try {
+        // Fetch API metadata for badges
+        fetch(`https://huggingface.co/api/datasets/${datasetId}`)
+            .then(res => res.json())
+            .then(data => {
+                const metaDiv = document.getElementById('dataset-meta');
+                metaDiv.innerHTML = `
+                    <span class="badge">⬇ ${data.downloads || 0} Downloads</span>
+                    <span class="badge">❤️ ${data.likes || 0} Likes</span>
+                    <span class="badge">📅 Updated ${new Date(data.lastModified).toLocaleDateString()}</span>
+                `;
+            }).catch(e => console.log(e));
+
+        // Fetch README
+        const readmeRes = await fetch(`https://huggingface.co/datasets/${datasetId}/resolve/main/README.md`);
+        if (!readmeRes.ok) throw new Error("README not found");
+        
+        const markdown = await readmeRes.text();
+        // Remove YAML frontmatter from HF README
+        const cleanMarkdown = markdown.replace(/^---[\s\S]*?---\n/, '');
+        
+        document.getElementById('dataset-readme').innerHTML = marked.parse(cleanMarkdown);
+    } catch (err) {
+        document.getElementById('dataset-readme').innerHTML = "<p>No README available for this dataset.</p>";
+    }
+}
+
+function renderBlogGrid() {
     const blogGrid = document.getElementById('blog-grid');
     if (blogGrid && typeof BLOG_INDEX !== 'undefined') {
         BLOG_INDEX.forEach(post => {
@@ -106,8 +97,9 @@ document.addEventListener('DOMContentLoaded', () => {
             blogGrid.appendChild(card);
         });
     }
+}
 
-    // Single Post Logic
+function loadBlogPost() {
     const postContainer = document.getElementById('post-content');
     if (postContainer && typeof BLOG_INDEX !== 'undefined') {
         const params = new URLSearchParams(window.location.search);
@@ -160,3 +152,16 @@ document.addEventListener('DOMContentLoaded', () => {
             postContainer.innerHTML = '<p>The post you are looking for does not exist or has been removed.</p>';
         }
     }
+}
+
+function setupLockAnimation() {
+    const lock = document.querySelector('.hero .icon-monochrome');
+    if(lock) {
+        lock.addEventListener('mouseenter', () => {
+            lock.src = 'svgs/unlock.svg';
+        });
+        lock.addEventListener('mouseleave', () => {
+            lock.src = 'svgs/lock.svg';
+        });
+    }
+}
