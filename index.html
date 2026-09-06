@@ -77,56 +77,105 @@
     </header>
 
     <main>
+        <!-- HERO — First Person, Real Claim -->
         <section class="hero">
             <div class="container hero-content">
-                <h1 class="hero-title">Develop. Collaborate.<br><span>Thrive.</span></h1>
-                <p class="hero-subtitle">We are an open-first AI collective focused on building robust datasets, advancing agentic models, and thriving through developer collaboration.</p>
+                <h1 class="hero-title">I crawled 133K pages<br>on a <span>home PC.</span></h1>
+                <p class="hero-subtitle">One developer. Rust. A tiered anti-bot crawler that escalates from HTTP to headless Chrome when it gets blocked. 37 GB on spinning HDDs. ₹0 infrastructure spend. Every dataset free and open.</p>
                 <div class="hero-actions">
-                    <a href="https://github.com/sphita" class="btn btn-outline">Explore Code</a>
-                    <a href="https://huggingface.co/sphita" class="btn btn-primary">View Datasets</a>
+                    <a href="datasets.html" class="btn btn-primary">Browse Datasets</a>
+                    <a href="#the-factory" class="btn btn-outline">See How It's Built ↓</a>
                 </div>
             </div>
         </section>
 
-        <section class="container" style="padding: 3rem 20px; text-align: center; border-bottom: var(--glass-border); position: relative; z-index: 2;">
-            <p style="color: var(--text-secondary); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem;">Powered By</p>
-            <div style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; opacity: 0.6; font-weight: 600; font-size: 1.1rem;">
-                <span>🤗 Hugging Face</span>
-                <span>Python</span>
-                <span>Pandas</span>
-                <span>Rust</span>
-                <span>Parquet</span>
-            </div>
-        </section>
-
+        <!-- STATS BAR — Real, Asymmetric, Linked -->
         <section class="container" style="padding: 4rem 20px 0; position: relative; z-index: 2;">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center; background: rgba(255,255,255,0.03); border: var(--glass-border); border-radius: 16px; padding: 2.5rem; backdrop-filter: blur(10px);">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; text-align: center; background: rgba(255,255,255,0.03); border: var(--glass-border); border-radius: 16px; padding: 2.5rem; backdrop-filter: blur(10px);">
                 <div>
+                    <h2 style="font-size: 2.5rem; color: var(--accent-blue); font-weight: 800; margin-bottom: 0.5rem;">133K+</h2>
+                    <p style="color: var(--text-secondary); font-weight: 500;">Pages Crawled</p>
+                </div>
+                <a href="datasets.html" style="text-decoration: none;">
                     <h2 style="font-size: 2.5rem; color: var(--accent-blue); font-weight: 800; margin-bottom: 0.5rem;">11</h2>
                     <p style="color: var(--text-secondary); font-weight: 500;">Public Datasets</p>
+                </a>
+                <div>
+                    <h2 style="font-size: 2.5rem; color: var(--accent-blue); font-weight: 800; margin-bottom: 0.5rem;">37 GB</h2>
+                    <p style="color: var(--text-secondary); font-weight: 500;">On Spinning HDDs</p>
                 </div>
                 <div>
-                    <h2 style="font-size: 2.5rem; color: var(--accent-blue); font-weight: 800; margin-bottom: 0.5rem;">36K+</h2>
-                    <p style="color: var(--text-secondary); font-weight: 500;">Total Downloads</p>
-                </div>
-                <div>
-                    <h2 style="font-size: 2.5rem; color: var(--accent-blue); font-weight: 800; margin-bottom: 0.5rem;">7.1B+</h2>
-                    <p style="color: var(--text-secondary); font-weight: 500;">Tokens Processed</p>
-                </div>
-                <div>
-                    <h2 style="font-size: 2.5rem; color: var(--accent-blue); font-weight: 800; margin-bottom: 0.5rem;">100%</h2>
-                    <p style="color: var(--text-secondary); font-weight: 500;">Open Source</p>
+                    <h2 style="font-size: 2.5rem; color: var(--accent-blue); font-weight: 800; margin-bottom: 0.5rem;">₹0</h2>
+                    <p style="color: var(--text-secondary); font-weight: 500;">Cloud Spend</p>
                 </div>
             </div>
         </section>
 
+        <!-- THE FACTORY — Pipeline Proof -->
+        <section id="the-factory" class="container" style="padding: 6rem 20px 4rem; position: relative; z-index: 2;">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -1px;">How It's <span style="color: var(--accent-blue);">Built</span></h2>
+                <p style="color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 1rem auto 0;">No Lambda functions. No managed services. Just a Rust binary, spinning HDDs, and stubbornness.</p>
+            </div>
 
-        
-        
+            <!-- Architecture Cards -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+                <div class="feature-card" style="padding: 2rem;">
+                    <h3 style="color: var(--accent-blue); font-family: monospace; font-size: 1rem; margin-bottom: 0.75rem;">TIER 1 — HTTP</h3>
+                    <p style="font-size: 0.9rem;">rquest with Chrome TLS/JA4 fingerprint impersonation. Looks like a real browser at the TCP level. Handles 85% of pages.</p>
+                </div>
+                <div class="feature-card" style="padding: 2rem;">
+                    <h3 style="color: var(--accent-blue); font-family: monospace; font-size: 1rem; margin-bottom: 0.75rem;">TIER 3 — BROWSER</h3>
+                    <p style="font-size: 0.9rem;">Headless Chromium via raw CDP. Auto-escalates when Tier 1 gets blocked by JS SPAs. Browser auto-relaunches if Chrome dies.</p>
+                </div>
+                <div class="feature-card" style="padding: 2rem;">
+                    <h3 style="color: var(--accent-blue); font-family: monospace; font-size: 1rem; margin-bottom: 0.75rem;">STORAGE</h3>
+                    <p style="font-size: 0.9rem;">LMDB-backed URL queue. Parquet persistence. Disk-space watchdog kills the crawl before your drive fills up. Graceful SIGTERM shutdown.</p>
+                </div>
+            </div>
+
+            <!-- Real Terminal Output -->
+            <div style="background: #0d0d0d; border: 1px solid rgba(0, 255, 0, 0.15); border-radius: 12px; padding: 2rem; font-family: 'Fira Code', monospace; font-size: 0.8rem; line-height: 1.8; overflow-x: auto; color: #00ff00;">
+                <div style="color: #666; margin-bottom: 1rem;">// Live from qween_crawler — real log output</div>
+                <div><span style="color: #ffaa00;">WARN</span>  tier-1 blocked → escalating to tier-3 url="https://cloud.google.com/ai/generative-ai"</div>
+                <div style="color: #888;">       reason=phase-b:heavy-js-spa-script-count budget_left_ms=19253</div>
+                <div><span style="color: #ffaa00;">WARN</span>  site redesign detected — content hash changed domain="google.com"</div>
+                <div><span style="color: #ff4444;">ERROR</span> fetch failed worker_id=29 url=https://cloud.google.com/apigee/docs/getstarted</div>
+                <div style="color: #888;">       error=fetch timeout after 15s</div>
+                <div><span style="color: #00ff00;">INFO</span>  crawled=133,812 | errored=3,313 | frontier=634,632 | inflight=47</div>
+                <div style="color: #888;">       bytes_total=37,501,408,394 | tier1=114,342 | tier3=672</div>
+            </div>
+
+            <p style="text-align: center; color: var(--text-secondary); font-size: 0.85rem; margin-top: 1rem; font-style: italic;">Yes, those are real errors. The crawler handles them and keeps going.</p>
+        </section>
+
+        <!-- THE MACHINE -->
+        <section class="container" style="padding: 0 20px 4rem; position: relative; z-index: 2;">
+            <div style="background: rgba(255,255,255,0.02); border: var(--glass-border); border-radius: 16px; padding: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                <div>
+                    <p style="color: var(--accent-blue); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;">The Machine</p>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; font-weight: 700;">Everything runs on one desktop.</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">Intel i7-12700F (20 threads) · GTX 1650 · 16 GB RAM · Kali Linux · 360 GB HDD + 930 GB external. The hostname is <span style="color: var(--accent-blue); font-family: monospace;">WannaCry</span>. No cloud. No GPUs rented. Just patience and spinning rust.</p>
+                </div>
+                <div style="background: #0d0d0d; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 1.5rem; font-family: monospace; font-size: 0.75rem; line-height: 1.6; color: #a0a0a0;">
+                    <div style="color: #00ff00;">┌──(adhyansh㉿WannaCry)-[~]</div>
+                    <div style="color: #00ff00;">└─$ fastfetch --logo none</div>
+                    <div>CPU: i7-12700F (16+4) @ 4.90 GHz</div>
+                    <div>GPU: NVIDIA GTX 1650</div>
+                    <div>Memory: 9.42 GiB / 15.46 GiB (61%)</div>
+                    <div>Disk (/home): 105 GiB / 358 GiB — <span style="color: #ffaa00;">ext4 HDD</span></div>
+                    <div>Disk (ext): 123 GiB / 931 GiB — <span style="color: #ffaa00;">exfat HDD</span></div>
+                    <div>OS: Kali GNU/Linux Rolling</div>
+                    <div>Uptime: 5 hours, 33 mins</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED DATASETS -->
         <section class="features container">
             <div class="text-block" style="max-width: 100%; margin-bottom: 2rem; grid-column: 1 / -1; text-align: center;">
                 <h2 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 1rem;">Featured <span style="color: var(--accent-blue);">Datasets</span></h2>
-                <p style="color: var(--text-secondary); font-size: 1.15rem;">Highly normalized, streaming-optimized data engineered for foundation models.</p>
+                <p style="color: var(--text-secondary); font-size: 1.15rem;">Crawled, cleaned, and shipped to Hugging Face. All free for research and commercial use.</p>
             </div>
             
             <div class="feature-card">
@@ -134,33 +183,43 @@
                     <span style="background: rgba(25, 113, 255, 0.15); color: var(--accent-blue); padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 800; border: 1px solid rgba(25, 113, 255, 0.3);">13.4K+ DOWNLOADS</span>
                 </div>
                 <h3 style="font-family: monospace; font-size: 1.1rem; word-break: break-all;">AdhyanshVerma/open-github-major-repos</h3>
-                <p style="font-size: 0.95rem;">An elite, curated collection of GitHub commit metadata from the world's most influential technology companies: Microsoft, Google, Meta, and Intel.</p>
+                <p style="font-size: 0.95rem;">GitHub commit metadata from Microsoft, Google, Meta, and Intel. Uses the Lazy Pointer Pattern — metadata in Parquet, full content via pointers.</p>
                 <a href="dataset.html?id=AdhyanshVerma/open-github-major-repos" class="card-link">View Dataset &rarr;</a>
             </div>
             
             <div class="feature-card">
                 <div class="icon" style="margin-bottom: 1.5rem;">
-                    <span style="background: rgba(25, 113, 255, 0.15); color: var(--accent-blue); padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 800; border: 1px solid rgba(25, 113, 255, 0.3);">~1M ROWS</span>
+                    <span style="background: rgba(25, 113, 255, 0.15); color: var(--accent-blue); padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 800; border: 1px solid rgba(25, 113, 255, 0.3);">~1M ROWS · 176 SHARDS</span>
                 </div>
                 <h3 style="font-family: monospace; font-size: 1.1rem; word-break: break-all;">AdhyanshVerma/stack-2021-12-01</h3>
-                <p style="font-size: 0.95rem;">A highly normalized, streaming-optimized Stack Exchange corpus engineered for LLM reasoning and instruction tuning.</p>
+                <p style="font-size: 0.95rem;">Stack Exchange corpus from 21 sites, normalized into streaming-optimized Parquet. Built for LLM reasoning and instruction tuning.</p>
                 <a href="dataset.html?id=AdhyanshVerma/stack-2021-12-01" class="card-link">View Dataset &rarr;</a>
             </div>
             
             <div class="feature-card">
                 <div class="icon" style="margin-bottom: 1.5rem;">
-                    <span style="background: rgba(25, 113, 255, 0.15); color: var(--accent-blue); padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 800; border: 1px solid rgba(25, 113, 255, 0.3);">7.1B+ TOKENS</span>
+                    <span style="background: rgba(25, 113, 255, 0.15); color: var(--accent-blue); padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 800; border: 1px solid rgba(25, 113, 255, 0.3);">50,871 BOOKS · 7.14B TOKENS</span>
                 </div>
                 <h3 style="font-family: monospace; font-size: 1.1rem; word-break: break-all;">AdhyanshVerma/pg-en</h3>
-                <p style="font-size: 0.95rem;">A massive snapshot of the English Project Gutenberg catalog (50,871 files, ~7.14B tokens), formatted into Parquet and JSONL.</p>
+                <p style="font-size: 0.95rem;">The entire English Project Gutenberg catalog. 50K+ books converted to Parquet and JSONL. One of the largest clean literary corpora on HuggingFace.</p>
                 <a href="dataset.html?id=AdhyanshVerma/pg-en" class="card-link">View Dataset &rarr;</a>
             </div>
             
             <div style="grid-column: 1 / -1; text-align: center; margin-top: 2rem;">
-                <a href="datasets.html" class="btn btn-outline">View All Datasets</a>
+                <a href="datasets.html" class="btn btn-outline">View All 11 Datasets</a>
             </div>
         </section>
 
+        <!-- BUILT BY — The Founder -->
+        <section class="container" style="padding: 4rem 20px 6rem; position: relative; z-index: 2;">
+            <div style="background: rgba(255,255,255,0.02); border: var(--glass-border); border-radius: 16px; padding: 3rem; max-width: 800px; margin: 0 auto;">
+                <p style="color: var(--accent-blue); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem;">Built by</p>
+                <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 700;">Adhyansh Verma, 16.</h3>
+                <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">I started crawling the web because I noticed that most open datasets for AI are either ancient Common Crawl dumps or gated behind corporate APIs. The first version of my crawler created so many files the OS filesystem choked. So I rewrote everything in Rust around Parquet — and kept going.</p>
+                <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">Today I run qween_crawler on a desktop named WannaCry with no cloud budget. The datasets are free because I think AI research shouldn't be paywalled. If you find a bug or a boilerplate header I missed, <a href="https://github.com/sphita" style="color: var(--accent-blue);">PRs are welcome</a>.</p>
+                <p style="color: #666; font-size: 0.85rem; font-style: italic;">Known limitation: forum boilerplate isn't fully stripped from some web crawls yet. Working on it.</p>
+            </div>
+        </section>
 
     </main>
 
