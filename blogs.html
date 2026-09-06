@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="About Sphita - Learn about our mission, our open-first philosophy, and our leadership.">
-    <title>About | Sphita</title>
+    <meta name="description" content="Sphita Blog - Updates, dataset releases, and technical deep-dives.">
+    <title>Blog | Sphita</title>
     
-    <!-- Dynamic Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%231971ff'/></svg>">
-    
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
 </head>
@@ -27,9 +25,9 @@
             <nav>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li><a href="datasets.html">Datasets</a></li>
-                    <li><a href="blogs.html">Blog</a></li>
+                    <li><a href="blogs.html" class="active">Blog</a></li>
                     <li><a href="https://huggingface.co/sphita" target="_blank" class="svg-link" title="Hugging Face"><img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo-pirate.png" alt="Hugging Face" class="svg-icon icon-monochrome"></a></li>
                     <li><a href="https://github.com/sphita" target="_blank" class="svg-link" title="GitHub"><img src="svgs/icons8-github.svg" alt="GitHub" class="svg-icon icon-invert"></a></li>
                 </ul>
@@ -37,36 +35,19 @@
             <div class="nav-cta">
                 <a href="https://discord.gg/mz2hBN3k8p" target="_blank" class="btn btn-primary svg-link"><img src="svgs/icons8-discord.svg" alt="Discord" class="svg-icon icon-invert"> Join Discord</a>
             </div>
-            <div class="mobile-menu-toggle" id="mobile-menu-toggle">
-                &#9776;
-            </div>
+            <div class="mobile-menu-toggle" id="mobile-menu-toggle">&#9776;</div>
         </div>
     </header>
 
     <main class="page-content">
-        <section class="container content-section">
-            <h1 class="page-title">About <span>Sphita</span></h1>
-            <div class="text-block">
-                <h2>Our Story</h2>
-                <p>Sphita was founded with a singular focus: to solve the data bottleneck in modern AI development. We recognized that while model architectures are widely shared, high-quality, curated datasets remain heavily gated. We are here to change that.</p>
-                <p>We are a community-driven organization consisting of researchers, developers, and AI enthusiasts. We believe that true progress in artificial intelligence comes from radical collaboration and shared resources.</p>
-                
-                <h2>Our Open-First Philosophy</h2>
-                <p>We are committed to open-sourcing approximately 90% of our codebases, datasets, and models. For extremely large or complex datasets, we implement a staged release strategy (e.g., releasing an initial 60% partition) to ensure rigorous quality control and safety checks before the remaining data is published.</p>
+        <section class="container content-section" style="text-align: center;">
+            <h1 class="page-title">Sphita <span>Blog</span></h1>
+            <p class="hero-subtitle">Updates, technical deep-dives, and community announcements.</p>
+        </section>
 
-                <h2>Leadership</h2>
-                <div class="leadership-card">
-                    <div class="avatar-initials">AV</div>
-                    <div class="leadership-bio">
-                        <h3>Adhyash Verma</h3>
-                        <p class="role-title">Founder & Lead Researcher</p>
-                        <p>Adhyash leads the strategic vision for Sphita, overseeing dataset curation and agentic architecture.</p>
-                        <div class="social-links">
-                            <a href="https://github.com/AVadhyanshverma" target="_blank" class="btn btn-outline btn-sm svg-link"><img src="svgs/icons8-github.svg" alt="GitHub" class="svg-icon icon-invert"> GitHub</a>
-                            <a href="https://huggingface.co/AdhyanshVerma" target="_blank" class="btn btn-outline btn-sm svg-link"><img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo-pirate.png" alt="Hugging Face" class="svg-icon icon-monochrome"> Hugging Face</a>
-                        </div>
-                    </div>
-                </div>
+        <section class="container">
+            <div id="blog-grid" class="features" style="padding-top: 2rem;">
+                <!-- Blog cards will be dynamically injected here by script.js -->
             </div>
         </section>
     </main>
@@ -82,7 +63,8 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="https://huggingface.co/sphita">Datasets</a></li>
+                    <li><a href="datasets.html">Datasets</a></li>
+                    <li><a href="blogs.html">Blog</a></li>
                 </ul>
             </div>
             <div class="footer-links">
@@ -99,6 +81,7 @@
         </div>
     </footer>
 
+    <script src="blog-index.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

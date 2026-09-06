@@ -90,3 +90,47 @@ document.addEventListener('DOMContentLoaded', () => {
         
         fetchHuggingFaceDatasets();
     }
+
+    // Blog Hub Logic
+    const blogGrid = document.getElementById('blog-grid');
+    if (blogGrid && typeof BLOG_INDEX !== 'undefined') {
+        BLOG_INDEX.forEach(post => {
+            const card = document.createElement('div');
+            card.className = 'feature-card blog-card';
+            card.innerHTML = `
+                <span class="blog-date">${post.date}</span>
+                <h3 class="blog-title">${post.title}</h3>
+                <p>${post.excerpt}</p>
+                <a href="post.html?id=${post.id}" class="card-link">Read Post &rarr;</a>
+            `;
+            blogGrid.appendChild(card);
+        });
+    }
+
+    // Single Post Logic
+    const postContainer = document.getElementById('post-content');
+    if (postContainer && typeof BLOG_INDEX !== 'undefined') {
+        const params = new URLSearchParams(window.location.search);
+        const postId = params.get('id');
+        const postMeta = BLOG_INDEX.find(p => p.id === postId);
+        
+        if (postMeta) {
+            document.getElementById('post-title').textContent = postMeta.title;
+            document.getElementById('post-date').textContent = postMeta.date + ' • By ' + postMeta.author;
+            
+            fetch(postMeta.file)
+                .then(res => {
+                    if (!res.ok) throw new Error("Failed to load post");
+                    return res.text();
+                })
+                .then(md => {
+                    postContainer.innerHTML = marked.parse(md);
+                })
+                .catch(err => {
+                    postContainer.innerHTML = '<p>Error loading post content. The markdown file may be missing.</p>';
+                });
+        } else {
+            document.getElementById('post-title').textContent = '404 - Post Not Found';
+            postContainer.innerHTML = '<p>The post you are looking for does not exist or has been removed.</p>';
+        }
+    }
