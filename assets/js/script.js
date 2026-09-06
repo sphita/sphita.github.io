@@ -21,13 +21,15 @@ async function fetchDatasets() {
             const card = document.createElement('div');
             card.className = 'feature-card dataset-card';
             
+            const desc = dataset.description ? dataset.description.replace(/[\n\t]+/g, " ").substring(0, 100) + "..." : "No description provided.";
             card.innerHTML = `
                 <div class="dataset-stats" style="margin-bottom: 1rem;">
                     <span>⬇ ${dataset.downloads || 0}</span>
-                    <span style="margin-left: 1rem;">❤️ ${dataset.likes || 0}</span>
+                    <span style="margin-left: 1rem;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" style="width:16px;height:16px;vertical-align:middle;margin-right:4px;"><path d="M22.45,6a5.47,5.47,0,0,1,3.91,1.64,5.7,5.7,0,0,1,0,8L16,26.13,5.64,15.64a5.7,5.7,0,0,1,0-8,5.48,5.48,0,0,1,7.82,0L16,10.24l2.53-2.58A5.44,5.44,0,0,1,22.45,6m0-2a7.47,7.47,0,0,0-5.34,2.24L16,7.36,14.89,6.24a7.49,7.49,0,0,0-10.68,0,7.72,7.72,0,0,0,0,10.82L16,29,27.79,17.06a7.72,7.72,0,0,0,0-10.82A7.49,7.49,0,0,0,22.45,4Z"></path></svg> ${dataset.likes || 0}</span>
                 </div>
                 <h3 style="font-family: monospace; word-break: break-all; font-size: 1.05rem;">${dataset.id}</h3>
-                <p>Updated: ${new Date(dataset.lastModified).toLocaleDateString()}</p>
+                <p style="font-size: 0.9rem; margin: 10px 0; color: #a0aec0;">${desc}</p>
+                <p style="font-size: 0.8rem; color: #718096;">Updated: ${new Date(dataset.lastModified).toLocaleDateString()}</p>
                 <a href="dataset.html?id=${dataset.id}" class="card-link">View Details &rarr;</a>
             `;
             grid.appendChild(card);
@@ -63,7 +65,7 @@ async function loadSingleDataset() {
                 const metaDiv = document.getElementById('dataset-meta');
                 metaDiv.innerHTML = `
                     <span class="badge">⬇ ${data.downloads || 0} Downloads</span>
-                    <span class="badge">❤️ ${data.likes || 0} Likes</span>
+                    <span class="badge"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" style="width:16px;height:16px;vertical-align:middle;margin-right:4px;"><path d="M22.45,6a5.47,5.47,0,0,1,3.91,1.64,5.7,5.7,0,0,1,0,8L16,26.13,5.64,15.64a5.7,5.7,0,0,1,0-8,5.48,5.48,0,0,1,7.82,0L16,10.24l2.53-2.58A5.44,5.44,0,0,1,22.45,6m0-2a7.47,7.47,0,0,0-5.34,2.24L16,7.36,14.89,6.24a7.49,7.49,0,0,0-10.68,0,7.72,7.72,0,0,0,0,10.82L16,29,27.79,17.06a7.72,7.72,0,0,0,0-10.82A7.49,7.49,0,0,0,22.45,4Z"></path></svg> ${data.likes || 0} Likes</span>
                     <span class="badge">📅 Updated ${new Date(data.lastModified).toLocaleDateString()}</span>
                 `;
             }).catch(e => console.log(e));
@@ -158,10 +160,10 @@ function setupLockAnimation() {
     const lock = document.querySelector('.hero .icon-monochrome');
     if(lock) {
         lock.addEventListener('mouseenter', () => {
-            lock.src = 'svgs/unlock.svg';
+            lock.src = 'assets/svgs/unlock.svg';
         });
         lock.addEventListener('mouseleave', () => {
-            lock.src = 'svgs/lock.svg';
+            lock.src = 'assets/svgs/lock.svg';
         });
     }
 }
