@@ -167,3 +167,34 @@ function setupLockAnimation() {
         });
     }
 }
+
+// Number Count Up Animation
+document.addEventListener("DOMContentLoaded", () => {
+    const stats = document.querySelectorAll('.stat-number');
+    let observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                let target = parseFloat(entry.target.getAttribute('data-target'));
+                if (target === 0) return; // Skip 0
+                let count = 0;
+                let speed = target / 40; // ~40 frames
+                
+                let updateCount = () => {
+                    count += speed;
+                    if (count < target) {
+                        entry.target.innerText = Math.ceil(count);
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        entry.target.innerText = target;
+                        if (entry.target.hasAttribute('data-suffix')) {
+                            entry.target.innerText += entry.target.getAttribute('data-suffix');
+                        }
+                    }
+                };
+                updateCount();
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    stats.forEach(stat => observer.observe(stat));
+});

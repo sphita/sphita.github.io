@@ -81,7 +81,7 @@
         <section class="hero">
             <div class="container hero-content">
                 <h1 class="hero-title">I crawled 133K pages<br>on a <span>home PC.</span></h1>
-                <p class="hero-subtitle">One developer. Rust. A tiered anti-bot crawler that escalates from HTTP to headless Chrome when it gets blocked. 37 GB on spinning HDDs. ₹0 infrastructure spend. Every dataset free and open.</p>
+                <p class="hero-subtitle text-container">One developer. Rust. A tiered anti-bot crawler that escalates from HTTP to headless Chrome when it gets blocked. 37 GB on spinning HDDs. ₹0 infrastructure spend. Every dataset free and open.</p>
                 <div class="hero-actions">
                     <a href="datasets.html" class="btn btn-primary">Browse Datasets</a>
                     <a href="#the-factory" class="btn btn-outline">See How It's Built ↓</a>
@@ -92,22 +92,22 @@
         <!-- STATS BAR — Real, Asymmetric, Linked -->
         <section class="container" style="padding: 4rem 20px 0; position: relative; z-index: 2;">
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; text-align: center; background: rgba(255,255,255,0.03); border: var(--glass-border); border-radius: 16px; padding: 2.5rem; backdrop-filter: blur(10px);">
-                <div>
-                    <h2 style="font-size: 2.5rem; color: var(--accent-blue); font-weight: 800; margin-bottom: 0.5rem;">133K+</h2>
-                    <p style="color: var(--text-secondary); font-weight: 500;">Pages Crawled</p>
-                </div>
                 <a href="datasets.html" style="text-decoration: none;">
-                    <h2 style="font-size: 2.5rem; color: var(--accent-blue); font-weight: 800; margin-bottom: 0.5rem;">11</h2>
+                    <h2 style="font-size: 2.5rem; color: var(--accent-blue); font-weight: 800; margin-bottom: 0.5rem; font-family: monospace;"><span class="stat-number" data-target="133" data-suffix="K+">0</span></h2>
+                    <p style="color: var(--text-secondary); font-weight: 500;">Pages Crawled</p>
+                </a>
+                <a href="datasets.html" style="text-decoration: none;">
+                    <h2 style="font-size: 2.5rem; color: var(--accent-blue); font-weight: 800; margin-bottom: 0.5rem; font-family: monospace;"><span class="stat-number" data-target="11">0</span></h2>
                     <p style="color: var(--text-secondary); font-weight: 500;">Public Datasets</p>
                 </a>
-                <div>
-                    <h2 style="font-size: 2.5rem; color: var(--accent-blue); font-weight: 800; margin-bottom: 0.5rem;">37 GB</h2>
+                <a href="#the-factory" style="text-decoration: none;">
+                    <h2 style="font-size: 2.5rem; color: var(--accent-blue); font-weight: 800; margin-bottom: 0.5rem; font-family: monospace;"><span class="stat-number" data-target="37" data-suffix=" GB">0</span></h2>
                     <p style="color: var(--text-secondary); font-weight: 500;">On Spinning HDDs</p>
-                </div>
-                <div>
-                    <h2 style="font-size: 2.5rem; color: var(--accent-blue); font-weight: 800; margin-bottom: 0.5rem;">₹0</h2>
+                </a>
+                <a href="#the-factory" style="text-decoration: none;">
+                    <h2 style="font-size: 2.5rem; color: var(--accent-blue); font-weight: 800; margin-bottom: 0.5rem; font-family: monospace;">₹<span class="stat-number" data-target="0">0</span></h2>
                     <p style="color: var(--text-secondary); font-weight: 500;">Cloud Spend</p>
-                </div>
+                </a>
             </div>
         </section>
 
@@ -115,7 +115,7 @@
         <section id="the-factory" class="container" style="padding: 6rem 20px 4rem; position: relative; z-index: 2;">
             <div style="text-align: center; margin-bottom: 3rem;">
                 <h2 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -1px;">How It's <span style="color: var(--accent-blue);">Built</span></h2>
-                <p style="color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 1rem auto 0;">No Lambda functions. No managed services. Just a Rust binary, spinning HDDs, and stubbornness.</p>
+                <p style="color: var(--text-secondary); font-size: 1.1rem; margin: 1rem auto 0;" class="text-container">No Lambda functions. No managed services. Just a Rust binary, spinning HDDs, and stubbornness.</p>
             </div>
 
             <!-- Architecture Cards -->
@@ -135,15 +135,21 @@
             </div>
 
             <!-- Real Terminal Output -->
-            <div style="background: #0d0d0d; border: 1px solid rgba(0, 255, 0, 0.15); border-radius: 12px; padding: 2rem; font-family: 'Fira Code', monospace; font-size: 0.8rem; line-height: 1.8; overflow-x: auto; color: #00ff00;">
-                <div style="color: #666; margin-bottom: 1rem;">// Live from qween_crawler — real log output</div>
-                <div><span style="color: #ffaa00;">WARN</span>  tier-1 blocked → escalating to tier-3 url="https://cloud.google.com/ai/generative-ai"</div>
-                <div style="color: #888;">       reason=phase-b:heavy-js-spa-script-count budget_left_ms=19253</div>
-                <div><span style="color: #ffaa00;">WARN</span>  site redesign detected — content hash changed domain="google.com"</div>
-                <div><span style="color: #ff4444;">ERROR</span> fetch failed worker_id=29 url=https://cloud.google.com/apigee/docs/getstarted</div>
-                <div style="color: #888;">       error=fetch timeout after 15s</div>
-                <div><span style="color: #00ff00;">INFO</span>  crawled=133,812 | errored=3,313 | frontier=634,632 | inflight=47</div>
-                <div style="color: #888;">       bytes_total=37,501,408,394 | tier1=114,342 | tier3=672</div>
+            <div class="vscode-window">
+                <div class="vscode-header">
+                    <div class="dots"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+                    queen.log — qween_crawler
+                </div>
+                <div class="vscode-body">
+                    <div class="vsc-comment">// Live from qween_crawler — real log output</div>
+                    <div><span class="vsc-warn">[WARN]</span>  tier-1 blocked → escalating to tier-3 <span class="vsc-key">url=</span><span class="vsc-str">"https://cloud.google.com/ai/generative-ai"</span></div>
+                    <div style="color: #888;">        <span class="vsc-key">reason=</span><span class="vsc-str">phase-b:heavy-js-spa-script-count</span> <span class="vsc-key">budget_left_ms=</span><span class="vsc-val">19253</span></div>
+                    <div><span class="vsc-warn">[WARN]</span>  site redesign detected — content hash changed <span class="vsc-key">domain=</span><span class="vsc-str">"google.com"</span></div>
+                    <div><span class="vsc-err">[ERROR]</span> fetch failed <span class="vsc-key">worker_id=</span><span class="vsc-val">29</span> <span class="vsc-key">url=</span><span class="vsc-str">https://cloud.google.com/apigee/docs/getstarted</span></div>
+                    <div style="color: #888;">        <span class="vsc-key">error=</span>fetch timeout after 15s</div>
+                    <div><span class="vsc-info">[INFO]</span>  crawled=<span class="vsc-val">133,812</span> | errored=<span class="vsc-val">3,313</span> | frontier=<span class="vsc-val">634,632</span> | inflight=<span class="vsc-val">47</span></div>
+                    <div>        bytes_total=<span class="vsc-val">37,501,408,394</span> | tier1=<span class="vsc-val">114,342</span> | tier3=<span class="vsc-val">672</span><span class="blinking-cursor"></span></div>
+                </div>
             </div>
 
             <p style="text-align: center; color: var(--text-secondary); font-size: 0.85rem; margin-top: 1rem; font-style: italic;">Yes, those are real errors. The crawler handles them and keeps going.</p>
@@ -151,7 +157,7 @@
 
         <!-- THE MACHINE -->
         <section class="container" style="padding: 0 20px 4rem; position: relative; z-index: 2;">
-            <div style="background: rgba(255,255,255,0.02); border: var(--glass-border); border-radius: 16px; padding: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;" class="machine-grid align-items: center;">
+            <div style="background: rgba(255,255,255,0.02); border: var(--glass-border); border-radius: 16px; padding: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;" class="machine-grid">
                 <div>
                     <p style="color: var(--accent-blue); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;">The Machine</p>
                     <h3 style="font-size: 1.5rem; margin-bottom: 1rem; font-weight: 700;">Everything runs on one desktop.</h3>
@@ -184,6 +190,7 @@
                 </div>
                 <h3 style="font-family: monospace; font-size: 1.1rem; word-break: break-all;">AdhyanshVerma/open-github-major-repos</h3>
                 <p style="font-size: 0.95rem;">GitHub commit metadata from Microsoft, Google, Meta, and Intel. Uses the Lazy Pointer Pattern — metadata in Parquet, full content via pointers.</p>
+                <div style="margin-bottom: 1rem; margin-top: 0.5rem; font-size: 0.8rem; color: #a0a0a0; font-family: monospace;">Aug 2026 — 13K files</div>
                 <a href="dataset.html?id=AdhyanshVerma/open-github-major-repos" class="card-link">View Dataset &rarr;</a>
             </div>
             
@@ -193,6 +200,7 @@
                 </div>
                 <h3 style="font-family: monospace; font-size: 1.1rem; word-break: break-all;">AdhyanshVerma/stack-2021-12-01</h3>
                 <p style="font-size: 0.95rem;">Stack Exchange corpus from 21 sites, normalized into streaming-optimized Parquet. Built for LLM reasoning and instruction tuning.</p>
+                <div style="margin-bottom: 1rem; margin-top: 0.5rem; font-size: 0.8rem; color: #a0a0a0; font-family: monospace;">Dec 2021 — 176 shards</div>
                 <a href="dataset.html?id=AdhyanshVerma/stack-2021-12-01" class="card-link">View Dataset &rarr;</a>
             </div>
             
@@ -202,6 +210,7 @@
                 </div>
                 <h3 style="font-family: monospace; font-size: 1.1rem; word-break: break-all;">AdhyanshVerma/pg-en</h3>
                 <p style="font-size: 0.95rem;">The entire English Project Gutenberg catalog. 50K+ books converted to Parquet and JSONL. One of the largest clean literary corpora on HuggingFace.</p>
+                <div style="margin-bottom: 1rem; margin-top: 0.5rem; font-size: 0.8rem; color: #a0a0a0; font-family: monospace;">Aug 2026 — 50,871 books</div>
                 <a href="dataset.html?id=AdhyanshVerma/pg-en" class="card-link">View Dataset &rarr;</a>
             </div>
             
@@ -216,7 +225,7 @@
                 <p style="color: var(--accent-blue); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem;">Built by</p>
                 <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 700;">Adhyansh Verma, 16.</h3>
                 <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">I started crawling the web because I noticed that most open datasets for AI are either ancient Common Crawl dumps or gated behind corporate APIs. The first version of my crawler created so many files the OS filesystem choked. So I rewrote everything in Rust around Parquet — and kept going.</p>
-                <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">Today I run qween_crawler on a desktop named WannaCry with no cloud budget. The datasets are free because I think AI research shouldn't be paywalled. If you find a bug or a boilerplate header I missed, <a href="https://github.com/sphita" style="color: var(--accent-blue);">PRs are welcome</a>.</p>
+                <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">Free for research & open source. Commercial use? Custom crawls? <strong><a href="https://discord.gg/mz2hBN3k8p" style="color: var(--accent-blue);">Let's talk.</a></strong></p>
                 <p style="color: #666; font-size: 0.85rem; font-style: italic;">Known limitation: forum boilerplate isn't fully stripped from some web crawls yet. Working on it.</p>
             </div>
         </section>
@@ -227,7 +236,7 @@
         <div class="container footer-content">
             <div class="footer-brand">
                 <h3>Sphita</h3>
-                <p>Empowering the future, one agent at a time.</p>
+                <p>Built on a desktop named WannaCry. No cloud. No funding. Just patience.</p>
             </div>
             <div class="footer-links">
                 <h4>Quick Links</h4>

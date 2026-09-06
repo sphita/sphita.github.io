@@ -749,3 +749,67 @@ footer {
     display: flex;
     align-items: center;
 }
+
+/* VS Code Terminal Block */
+.vscode-window {
+    background: #1e1e1e;
+    border: 1px solid #333333;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 16px 32px rgba(0,0,0,0.6);
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+.vscode-header {
+    background: #252526;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #333333;
+    color: #969696;
+    font-size: 0.75rem;
+}
+.vscode-header .dots {
+    display: flex;
+    gap: 8px;
+    margin-right: 16px;
+}
+.vscode-header .dot {
+    width: 12px; height: 12px; border-radius: 50%;
+}
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+.vscode-body {
+    padding: 1.5rem;
+    color: #d4d4d4;
+    overflow-x: auto;
+}
+
+/* VS Code Syntax Colors */
+.vsc-warn { color: #cca700; font-weight: bold; }
+.vsc-err { color: #f48771; font-weight: bold; }
+.vsc-info { color: #75beff; font-weight: bold; }
+.vsc-str { color: #ce9178; }
+.vsc-key { color: #9cdcfe; }
+.vsc-val { color: #b5cea8; }
+.vsc-comment { color: #6a9955; font-style: italic; }
+
+.blinking-cursor::after {
+    content: '█';
+    animation: blink 1s step-start infinite;
+    color: #d4d4d4;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Tighter Text Containers */
+.text-container {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
