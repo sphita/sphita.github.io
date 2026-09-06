@@ -12,19 +12,24 @@
     <meta property="og:description" content="Building robust datasets, advancing agentic models, and thriving through developer collaboration.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sphita.github.io/">
-    <!-- Using a generic placeholder since we don't have the image URL uploaded yet -->
     <meta property="og:image" content="https://avatars.githubusercontent.com/u/100000000">
 
     <title>Sphita | Develop. Collaborate. Thrive.</title>
+    
+    <!-- Dynamic Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%231971ff'/></svg>">
+    
     <link rel="stylesheet" href="style.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="bg-grid"></div>
     <div class="bg-elements">
         <div class="orb orb-1"></div>
         <div class="orb orb-2"></div>
     </div>
+    
     <header class="navbar">
         <div class="container nav-container">
             <div class="logo">
@@ -34,7 +39,7 @@
                 <ul class="nav-links">
                     <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="https://huggingface.co/sphita" target="_blank" class="svg-link" title="Hugging Face"><img src="svgs/hf-logo.svg" alt="Hugging Face" class="svg-icon"></a></li>
+                    <li><a href="https://huggingface.co/sphita" target="_blank" class="svg-link" title="Hugging Face"><img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo-pirate.png" alt="Hugging Face" class="svg-icon icon-monochrome"></a></li>
                     <li><a href="https://github.com/sphita" target="_blank" class="svg-link" title="GitHub"><img src="svgs/icons8-github.svg" alt="GitHub" class="svg-icon icon-invert"></a></li>
                 </ul>
             </nav>
@@ -50,14 +55,13 @@
     <main>
         <section class="hero">
             <div class="container hero-content">
-                <h1 class="hero-title">Develop. Collaborate. <span>Thrive.</span></h1>
+                <h1 class="hero-title">Develop. Collaborate.<br><span>Thrive.</span></h1>
                 <p class="hero-subtitle">We are an open-first AI collective focused on building robust datasets, advancing agentic models, and thriving through developer collaboration.</p>
                 <div class="hero-actions">
                     <a href="https://github.com/sphita" class="btn btn-outline">Explore Code</a>
                     <a href="https://huggingface.co/sphita" class="btn btn-primary">View Datasets</a>
                 </div>
             </div>
-            <div class="glow-orb"></div>
         </section>
 
         <section class="features container">
@@ -65,19 +69,22 @@
                 <div class="icon"><img src="svgs/bar_chart_4_bars_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Datasets" class="feature-icon"></div>
                 <h3>Datasets First</h3>
                 <p>High-quality data is the bottleneck for AI. We create, process, and publish robust datasets tailored for the open-source community to build better models.</p>
+                <a href="https://huggingface.co/sphita" class="card-link">Explore Datasets &rarr;</a>
             </div>
             <div class="feature-card" id="open-source-card">
-                <div class="icon lock-container" style="position: relative; width: 48px; height: 48px; margin-bottom: 0.5rem;">
-                    <img src="svgs/lock_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Closed Lock" class="feature-icon lock-closed" style="position: absolute; top: 0; left: 0;">
-                    <img src="svgs/lock_open_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Open Lock" class="feature-icon lock-open" style="position: absolute; top: 0; left: 0; opacity: 0; transform: scale(0.9);">
+                <div class="icon lock-container" style="position: relative; width: 48px; height: 48px; margin-bottom: 1.5rem;">
+                    <img src="svgs/lock_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Closed Lock" class="feature-icon lock-closed" style="position: absolute; top: 0; left: 0; margin-bottom:0;">
+                    <img src="svgs/lock_open_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Open Lock" class="feature-icon lock-open" style="position: absolute; top: 0; left: 0; opacity: 0; transform: scale(0.9); margin-bottom:0;">
                 </div>
                 <h3>Open-First Approach</h3>
                 <p>We aim to keep ~90% of our work fully open-source. For massive datasets, we utilize staged rollouts to ensure quality, safety, and community feedback.</p>
+                <a href="about.html" class="card-link">Read our Philosophy &rarr;</a>
             </div>
             <div class="feature-card">
                 <div class="icon"><img src="svgs/handshake_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Collaboration" class="feature-icon"></div>
                 <h3>Developer Collaboration</h3>
                 <p>We actively partner with developers globally. Whether you are a veteran or just starting out, we build, test, and deploy AI solutions together.</p>
+                <a href="https://discord.gg/mz2hBN3k8p" class="card-link">Join the Community &rarr;</a>
             </div>
         </section>
     </main>
@@ -89,10 +96,18 @@
                 <p>Empowering the future, one agent at a time.</p>
             </div>
             <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="https://huggingface.co/sphita">Datasets</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
                 <h4>Connect</h4>
                 <ul>
                     <li><a href="https://github.com/sphita" class="svg-link"><img src="svgs/icons8-github.svg" alt="GitHub" class="svg-icon icon-invert"> GitHub</a></li>
-                    <li><a href="https://huggingface.co/sphita" class="svg-link"><img src="svgs/hf-logo.svg" alt="Hugging Face" class="svg-icon"> Hugging Face</a></li>
+                    <li><a href="https://huggingface.co/sphita" class="svg-link"><img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo-pirate.png" alt="Hugging Face" class="svg-icon icon-monochrome"> Hugging Face</a></li>
                     <li><a href="https://discord.gg/mz2hBN3k8p" class="svg-link"><img src="svgs/icons8-discord.svg" alt="Discord" class="svg-icon icon-invert"> Discord</a></li>
                 </ul>
             </div>
