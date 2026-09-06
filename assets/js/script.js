@@ -13,7 +13,8 @@ async function fetchDatasets() {
     if (!grid) return;
     
     try {
-        const res = await fetch('https://huggingface.co/api/datasets?author=AdhyanshVerma');
+        const author = grid.getAttribute("data-author") || "AdhyanshVerma";
+        const res = await fetch(`https://huggingface.co/api/datasets?author=${author}`);
         const datasets = await res.json();
         
         grid.innerHTML = '';

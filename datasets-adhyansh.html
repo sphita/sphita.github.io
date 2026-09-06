@@ -3,15 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Read our latest updates on the Sphita Blog.">
-    <title>Post | Sphita</title>
+    <meta name="description" content="Sphita Datasets - Explore our open-source, robust AI datasets automatically synced from Hugging Face.">
+    <title>Datasets | Sphita</title>
     
     <link rel="icon" href="assets/sphita.jpg">
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
-    
-    <!-- Marked.js for parsing Markdown to HTML -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
     <!-- Comprehensive SEO and Social Cards -->
     <meta property="og:site_name" content="Sphita">
@@ -51,9 +48,8 @@
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="datasets.html">Company</a></li>
-                    <li><a href="datasets-adhyansh.html">Dev Data</a></li>
-                    <li><a href="blogs.html" class="active">Blog</a></li>
+                    <li><a href="datasets.html" class="active">Datasets</a></li>
+                    <li><a href="blogs.html">Blog</a></li>
                     <li><a href="https://huggingface.co/sphita" target="_blank" class="svg-link" title="Hugging Face"><img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo-pirate.png" alt="Hugging Face" class="svg-icon icon-monochrome"></a></li>
                     <li><a href="https://github.com/sphita" target="_blank" class="svg-link" title="GitHub"><img src="assets/svgs/icons8-github.svg" alt="GitHub" class="svg-icon icon-invert"></a></li>
                 </ul>
@@ -61,23 +57,45 @@
             <div class="nav-cta">
                 <a href="https://discord.gg/mz2hBN3k8p" target="_blank" class="btn btn-primary svg-link"><img src="assets/svgs/icons8-discord.svg" alt="Discord" class="svg-icon icon-invert"> Join Discord</a>
             </div>
-            <div class="mobile-menu-toggle" id="mobile-menu-toggle">&#9776;</div>
+            <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+                &#9776;
+            </div>
         </div>
     </header>
 
-    <main class="page-content" style="padding-top: 60px;">
-        <section class="container">
-            <div class="text-block" style="max-width: 800px; margin: 0 auto; text-align: center; margin-bottom: 3rem;">
-                <h1 class="page-title" id="post-title" style="font-size: 3rem; margin-bottom: 1rem;">Loading Post...</h1>
-                <p id="post-date" style="color: var(--accent-blue); font-weight: 500;"></p>
+    <main class="page-content">
+        <section class="container content-section" style="text-align: center;">
+            <h1 class="page-title">Open-Source <span>Datasets</span></h1>
+            <p class="hero-subtitle" style="margin-bottom: 2rem;">Explore our high-quality data. Everything below is fetched <strong>live</strong> directly from our Hugging Face hub, ensuring download counts and stats are always up-to-date.</p>
+        </section>
+
+        <!-- Features Section (Specific to Datasets) -->
+        <section class="features container" style="padding-top: 0; padding-bottom: 4rem;">
+            <div class="feature-card" style="padding: 2rem;">
+                <div class="icon"><img src="assets/svgs/lock_open_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Open" class="feature-icon" style="width: 32px; height: 32px;"></div>
+                <h3 style="font-size: 1.1rem;">Permissive Licenses</h3>
+                <p style="font-size: 0.9rem;">Built for the community to use freely.</p>
             </div>
-            
-            <article id="post-content" class="prose">
-                <!-- Markdown content injected here by script.js -->
-            </article>
-            
-            <div style="text-align: center; margin-top: 5rem;">
-                <a href="blogs.html" class="btn btn-outline">&larr; Back to all posts</a>
+            <div class="feature-card" style="padding: 2rem;">
+                <div class="icon"><img src="assets/svgs/handshake_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Curated" class="feature-icon" style="width: 32px; height: 32px;"></div>
+                <h3 style="font-size: 1.1rem;">Highly Curated</h3>
+                <p style="font-size: 0.9rem;">Filtered for quality and safety.</p>
+            </div>
+            <div class="feature-card" style="padding: 2rem;">
+                <div class="icon"><img src="assets/svgs/bar_chart_4_bars_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Scale" class="feature-icon" style="width: 32px; height: 32px;"></div>
+                <h3 style="font-size: 1.1rem;">Built for Scale</h3>
+                <p style="font-size: 0.9rem;">Formatted for seamless agentic training.</p>
+            </div>
+        </section>
+
+        <!-- Live Datasets Grid -->
+        <section class="container">
+            <div class="text-block" style="max-width: 100%; margin-bottom: 2rem;">
+                <h2>All Datasets</h2>
+            </div>
+            <div id="datasets-grid" data-author="AdhyanshVerma" class="features" style="padding: 0; padding-bottom: 4rem;">
+                <!-- Populated via JS -->
+                <p style="color: var(--text-secondary);">Connecting to Hugging Face API...</p>
             </div>
         </section>
     </main>
@@ -95,7 +113,6 @@
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="datasets.html">Company</a></li>
                     <li><a href="datasets-adhyansh.html">Dev Data</a></li>
-                    <li><a href="blogs.html">Blog</a></li>
                 </ul>
             </div>
             <div class="footer-links">
@@ -112,7 +129,6 @@
         </div>
     </footer>
 
-    <script src="blog-index.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
 </html>
