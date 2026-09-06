@@ -45,3 +45,48 @@ document.addEventListener('DOMContentLoaded', () => {
             lockOpen.style.filter = 'drop-shadow(0 0 0 rgba(25,113,255,0))';
         });
     }
+
+    // Hugging Face Dynamic Dataset Fetcher
+    const datasetsGrid = document.getElementById('datasets-grid');
+    if (datasetsGrid) {
+        async function fetchHuggingFaceDatasets() {
+            try {
+                // Fetch datasets authored by 'sphita'
+                const response = await fetch('https://huggingface.co/api/datasets?author=sphita&sort=downloads&direction=-1');
+                const datasets = await response.json();
+
+                if (!datasets || datasets.length === 0) {
+                    datasetsGrid.innerHTML = '<p style="color: var(--text-secondary);">No datasets found yet. Check back soon or view our <a href="https://huggingface.co/sphita" style="color: var(--accent-blue);">Hugging Face profile</a>.</p>';
+                    return;
+                }
+
+                datasetsGrid.innerHTML = ''; // Clear loading text
+                
+                datasets.forEach(ds => {
+                    const name = ds.id.split('/')[1] || ds.id;
+                    const card = document.createElement('div');
+                    card.className = 'feature-card dataset-card';
+                    
+                    // Format dates and numbers
+                    const downloads = ds.downloads ? ds.downloads.toLocaleString() : '0';
+                    const likes = ds.likes ? ds.likes.toLocaleString() : '0';
+                    
+                    card.innerHTML = `
+                        <h3>${name}</h3>
+                        <div class="dataset-stats">
+                            <span><svg class="svg-icon" style="width:16px;height:16px;fill:currentColor;" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h520v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg> ${downloads}</span>
+                            <span>❤️ ${likes}</span>
+                        </div>
+                        <p>Automatically synced from Hugging Face.</p>
+                        <a href="https://huggingface.co/datasets/${ds.id}" target="_blank" class="card-link">View on Hugging Face &rarr;</a>
+                    `;
+                    datasetsGrid.appendChild(card);
+                });
+            } catch (error) {
+                console.error("Error fetching datasets:", error);
+                datasetsGrid.innerHTML = '<p style="color: var(--text-secondary);">Failed to load datasets. Please visit our <a href="https://huggingface.co/sphita" style="color: var(--accent-blue);">Hugging Face profile</a> directly.</p>';
+            }
+        }
+        
+        fetchHuggingFaceDatasets();
+    }

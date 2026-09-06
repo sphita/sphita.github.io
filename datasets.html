@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="About Sphita - Learn about our mission, our open-first philosophy, and our leadership.">
-    <title>About | Sphita</title>
+    <meta name="description" content="Sphita Datasets - Explore our open-source, robust AI datasets automatically synced from Hugging Face.">
+    <title>Datasets | Sphita</title>
     
-    <!-- Dynamic Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%231971ff'/></svg>">
-    
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
 </head>
@@ -27,8 +25,8 @@
             <nav>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html" class="active">About</a></li>
-                    <li><a href="datasets.html">Datasets</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="datasets.html" class="active">Datasets</a></li>
                     <li><a href="https://huggingface.co/sphita" target="_blank" class="svg-link" title="Hugging Face"><img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo-pirate.png" alt="Hugging Face" class="svg-icon icon-monochrome"></a></li>
                     <li><a href="https://github.com/sphita" target="_blank" class="svg-link" title="GitHub"><img src="svgs/icons8-github.svg" alt="GitHub" class="svg-icon icon-invert"></a></li>
                 </ul>
@@ -43,29 +41,38 @@
     </header>
 
     <main class="page-content">
-        <section class="container content-section">
-            <h1 class="page-title">About <span>Sphita</span></h1>
-            <div class="text-block">
-                <h2>Our Story</h2>
-                <p>Sphita was founded with a singular focus: to solve the data bottleneck in modern AI development. We recognized that while model architectures are widely shared, high-quality, curated datasets remain heavily gated. We are here to change that.</p>
-                <p>We are a community-driven organization consisting of researchers, developers, and AI enthusiasts. We believe that true progress in artificial intelligence comes from radical collaboration and shared resources.</p>
-                
-                <h2>Our Open-First Philosophy</h2>
-                <p>We are committed to open-sourcing approximately 90% of our codebases, datasets, and models. For extremely large or complex datasets, we implement a staged release strategy (e.g., releasing an initial 60% partition) to ensure rigorous quality control and safety checks before the remaining data is published.</p>
+        <section class="container content-section" style="text-align: center;">
+            <h1 class="page-title">Open-Source <span>Datasets</span></h1>
+            <p class="hero-subtitle" style="margin-bottom: 2rem;">Explore our high-quality data. Everything below is fetched <strong>live</strong> directly from our Hugging Face hub, ensuring download counts and stats are always up-to-date.</p>
+        </section>
 
-                <h2>Leadership</h2>
-                <div class="leadership-card">
-                    <div class="avatar-initials">AV</div>
-                    <div class="leadership-bio">
-                        <h3>Adhyash Verma</h3>
-                        <p class="role-title">Founder & Lead Researcher</p>
-                        <p>Adhyash leads the strategic vision for Sphita, overseeing dataset curation and agentic architecture.</p>
-                        <div class="social-links">
-                            <a href="https://github.com/AVadhyanshverma" target="_blank" class="btn btn-outline btn-sm svg-link"><img src="svgs/icons8-github.svg" alt="GitHub" class="svg-icon icon-invert"> GitHub</a>
-                            <a href="https://huggingface.co/AdhyanshVerma" target="_blank" class="btn btn-outline btn-sm svg-link"><img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo-pirate.png" alt="Hugging Face" class="svg-icon icon-monochrome"> Hugging Face</a>
-                        </div>
-                    </div>
-                </div>
+        <!-- Features Section (Specific to Datasets) -->
+        <section class="features container" style="padding-top: 0; padding-bottom: 4rem;">
+            <div class="feature-card" style="padding: 2rem;">
+                <div class="icon"><img src="svgs/lock_open_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Open" class="feature-icon" style="width: 32px; height: 32px;"></div>
+                <h3 style="font-size: 1.1rem;">Permissive Licenses</h3>
+                <p style="font-size: 0.9rem;">Built for the community to use freely.</p>
+            </div>
+            <div class="feature-card" style="padding: 2rem;">
+                <div class="icon"><img src="svgs/handshake_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Curated" class="feature-icon" style="width: 32px; height: 32px;"></div>
+                <h3 style="font-size: 1.1rem;">Highly Curated</h3>
+                <p style="font-size: 0.9rem;">Filtered for quality and safety.</p>
+            </div>
+            <div class="feature-card" style="padding: 2rem;">
+                <div class="icon"><img src="svgs/bar_chart_4_bars_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Scale" class="feature-icon" style="width: 32px; height: 32px;"></div>
+                <h3 style="font-size: 1.1rem;">Built for Scale</h3>
+                <p style="font-size: 0.9rem;">Formatted for seamless agentic training.</p>
+            </div>
+        </section>
+
+        <!-- Live Datasets Grid -->
+        <section class="container">
+            <div class="text-block" style="max-width: 100%; margin-bottom: 2rem;">
+                <h2>All Datasets</h2>
+            </div>
+            <div id="datasets-grid" class="features" style="padding: 0; padding-bottom: 4rem;">
+                <!-- Populated via JS -->
+                <p style="color: var(--text-secondary);">Connecting to Hugging Face API...</p>
             </div>
         </section>
     </main>
@@ -81,7 +88,7 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="https://huggingface.co/sphita">Datasets</a></li>
+                    <li><a href="datasets.html">Datasets</a></li>
                 </ul>
             </div>
             <div class="footer-links">
